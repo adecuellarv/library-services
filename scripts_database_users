@@ -6,7 +6,8 @@ create table users(
 	lastname varchar(50) not null,
 	phone varchar(20) not null,
 	email varchar(50) not null,
-	paswd varchar(50) not null
+	paswd varchar(50) not null,
+	sessionToken varchar(100) null
 );
 
 

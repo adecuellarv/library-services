@@ -19,4 +19,7 @@ export class Users {
 
     @Column()
     paswd: string;
+
+    @Column()
+    sessiontoken: string;
 }

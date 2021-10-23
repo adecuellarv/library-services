@@ -15,9 +15,34 @@ export class AppService {
     return this.booksRepo.find()
   }
 
-  addUser (body: any) {
-    const newUser = this.usersRepo.create(body)
-    return this.usersRepo.insert(newUser)
+  addUser: any = async (body: any) => {
+    const resp = await this.usersRepo.findOne({ where: { email: body.email } })
+    if (!resp) {
+      const objSession = {
+        sessiontoken: (Math.random().toString(36) + '00000000000000000').slice(
+          2,
+          15 + 2,
+        ),
+      }
+      const newUser = this.usersRepo.create({ ...body, ...objSession })
+      const respca = await this.usersRepo.insert(newUser)
+      if (respca) {
+        return {
+          code: 200,
+          token: objSession.sessiontoken,
+        }
+      } else {
+        return {
+          code: 400,
+          description: 'Hubo un error intenta nuevamente',
+        }
+      }
+    } else {
+      return {
+        code: 400,
+        description: 'Correo registrado previamente',
+      }
+    }
   }
 
   getHello (): string {
