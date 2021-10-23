@@ -44,4 +44,14 @@ export class AppController {
   updateUser (@Param('id') id: number, @Body() body: any) {
     return this.appService.updateuserInfo(id, body)
   }
+
+  @Get('booksuser/:id')
+  getbooksuser (@Param('id') id: number) {
+    return this.appService.getBooksUser(id)
+  }
+
+  @Post('/book-to-user')
+  addbooktouser (@Body() body: any) {
+    return this.appService.addBookToUser(body)
+  }
 }

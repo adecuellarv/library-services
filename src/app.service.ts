@@ -3,12 +3,14 @@ import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 import { Books } from './books/entities/books.entity'
 import { Users } from './users/entities/users.entity'
+import { Booksuser } from './books/entities/booksuser.entity'
 
 @Injectable()
 export class AppService {
   constructor (
     @InjectRepository(Books) private booksRepo: Repository<Books>,
     @InjectRepository(Users) private usersRepo: Repository<Users>,
+    @InjectRepository(Booksuser) private booksuserRepo: Repository<Booksuser>,
   ) {}
 
   findAllBooks () {
@@ -74,5 +76,35 @@ export class AppService {
 
   getHello (): string {
     return 'Hello World!'
+  }
+
+  getBooksUser (id: number) {
+    return this.booksuserRepo.find({
+      where: { iduser: id },
+    })
+  }
+
+  addBookToUser: any = async (body: any) => {
+    const resp = await this.booksuserRepo.findOne({
+      where: { idbook: body.idbook },
+    })
+    if (!resp) {
+      const respca = await this.booksuserRepo.insert(body)
+      if (respca) {
+        return {
+          code: 200,
+        }
+      } else {
+        return {
+          code: 400,
+          description: 'Hubo un error intenta nuevamente',
+        }
+      }
+    } else {
+      return {
+        code: 400,
+        description: 'Libro prestado previamente',
+      }
+    }
   }
 }

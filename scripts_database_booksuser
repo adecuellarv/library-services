@@ -1,0 +1,8 @@
+-- Table booksuser --
+
+create table booksuser(
+	idbooksuser serial primary key,
+	idbook int not null,
+	iduser int not null
+);
+
