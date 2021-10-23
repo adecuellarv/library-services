@@ -7,8 +7,8 @@ export class AppController {
 
   @Get('/books')
   getBooks() {
-    return true;
-    //return this.appService.findAll();
+    //return true;
+    return this.appService.findAll();
   }
 
   @Get('/categories')
