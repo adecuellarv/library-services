@@ -27,7 +27,7 @@ export class AppController {
 
   @Post('/new-user')
   addUser(@Body() body: any){
-    return body;
+    return this.appService.addUser(body);
   }
 
   @Post('/login')
