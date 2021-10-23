@@ -7,12 +7,8 @@ export class AppController {
 
   @Get('/books')
   getBooks() {
-    return [
-      {
-        id: 1,
-        title: 'Fly 1'
-      }
-    ]
+    return true;
+    //return this.appService.findAll();
   }
 
   @Get('/categories')
@@ -44,8 +40,4 @@ export class AppController {
     return body;
   }
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
 }

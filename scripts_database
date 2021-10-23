@@ -1,0 +1,10 @@
+-- Table books --
+
+create table books(
+	idbook serial primary key,
+	image varchar(100) not null,
+	title varchar(50) not null,
+	author varchar(50) not null,
+	yearPublished varchar(10) not null,
+	description varchar(255) not null
+);
