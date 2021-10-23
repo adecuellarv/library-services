@@ -32,7 +32,7 @@ export class AppController {
 
   @Post('/login')
   loginUser(@Body() body: any){
-    return body;
+    return this.appService.logginUser(body);
   }
 
   @Put('/update-user:id')

@@ -45,6 +45,24 @@ export class AppService {
     }
   }
 
+  logginUser: any = async (body: any) => {
+
+    const resp = await this.usersRepo.findOne({
+      where: { email: body.email, paswd: body.paswd },
+    })
+    if (resp) {
+      return {
+        code: 200,
+        data: resp,
+      }
+    } else {
+      return {
+        code: 400,
+        description: 'El usuario no existe',
+      }
+    }
+  }
+
   getHello (): string {
     return 'Hello World!'
   }
