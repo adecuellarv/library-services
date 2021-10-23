@@ -46,7 +46,6 @@ export class AppService {
   }
 
   logginUser: any = async (body: any) => {
-
     const resp = await this.usersRepo.findOne({
       where: { email: body.email, paswd: body.paswd },
     })
@@ -61,6 +60,16 @@ export class AppService {
         description: 'El usuario no existe',
       }
     }
+  }
+
+  findUser (id: number) {
+    return this.usersRepo.findOne(id)
+  }
+
+  updateuserInfo: any = async (id: number, body: any) => {
+    const user = await this.usersRepo.findOne(id)
+    this.usersRepo.merge(user, body)
+    return this.usersRepo.save(user)
   }
 
   getHello (): string {
