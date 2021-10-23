@@ -1,22 +1,22 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('books')
+@Entity()
 export class Books {
     @PrimaryGeneratedColumn()
     idbook: number;
 
-    @Column({nullable: false})
+    @Column()
     image: string;
 
-    @Column({nullable: false})
+    @Column()
     title: string;
 
-    @Column({nullable: false})
+    @Column()
     author: string;
 
-    @Column({nullable: false})
-    yearPublished: string;
+    @Column()
+    yearpublished: string;
 
-    @Column({nullable: false})
+    @Column()
     description: string;
 }

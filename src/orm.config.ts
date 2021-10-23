@@ -8,5 +8,5 @@ export const config: TypeOrmModuleOptions = {
   password: 'root',
   database: 'library',
   entities: ["dist/**/*.entity{.ts,.js}"],
-  synchronize: true,
+  synchronize: false,
 }

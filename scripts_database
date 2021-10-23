@@ -2,9 +2,40 @@
 
 create table books(
 	idbook serial primary key,
-	image varchar(100) not null,
+	image varchar(255) not null,
 	title varchar(50) not null,
 	author varchar(50) not null,
 	yearPublished varchar(10) not null,
 	description varchar(255) not null
 );
+
+
+--- INSETS VALUES INTO BOOKS ---
+insert into books (image, title, author, yearPublished, description) 
+values 
+	 ('https://image.isu.pub/200825131631-fc70c3f572f7723b88b4d42c8172da3b/jpg/page_1.jpg', 
+	  'What if?', 
+	  'Henrry H', 
+	  '2018', 
+	  'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione enim, placeat quis dolores temporibus rem? Mollitia dolorum dignissimos placeat amet, iusto error facere tempora nulla, et, aut architecto expedita adipisci!'
+	 ),
+	 ('http://images.randomhouse.com/cover/9780553539035', 
+	  'Glyph', 
+	  'Thomas H', 
+	  '2018', 
+	  'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione enim, placeat quis dolores temporibus rem? Mollitia dolorum dignissimos placeat amet, iusto error facere tempora nulla, et, aut architecto expedita adipisci!'
+	 ),
+	('https://storage.googleapis.com/circlesoft/document/photos/003/364/641/original_9781925106206.jpg?1606452094', 
+	 'Juegos infantiles', 
+	 'Lucia L', 
+	 '2020', 
+	 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione enim, placeat quis dolores temporibus rem? Mollitia dolorum dignissimos placeat amet, iusto error facere tempora nulla, et, aut architecto expedita adipisci!'
+	),
+	('https://wl-genial.cf.tsp.li/resize/728x/jpg/ba3/e72/337d485c37af5cf13264ff037c.jpg', 
+	 'Harry Potter', 
+	 'J K Rowling', 
+	 '2003', 
+	 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione enim, placeat quis dolores temporibus rem? Mollitia dolorum dignissimos placeat amet, iusto error facere tempora nulla, et, aut architecto expedita adipisci!'
+	)
+
+
