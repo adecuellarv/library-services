@@ -10,7 +10,7 @@ export class AppService {
     @InjectRepository(Books) private booksRepo: Repository<Books>
   ) {}
 
-  findAll(){
+  findAllBooks(){
     return this.booksRepo.find();
   }
 
